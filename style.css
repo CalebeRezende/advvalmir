@@ -1,0 +1,484 @@
+/*
+ * Global style sheet for the Valmir Eudridge Rezende law website.
+ *
+ * The design takes inspiration from top performing legal websites【42528575081629†L326-L337】【42528575081629†L343-L350】:
+ *  - Crisp typography, generous whitespace and minimal colour palette help
+ *    convey professionalism and trustworthiness.
+ *  - Clear information hierarchy and intuitive navigation ensure visitors
+ *    quickly find what they need【42528575081629†L330-L337】【42528575081629†L343-L350】.
+ *  - Prominent calls‑to‑action and contact details encourage potential clients
+ *    to book a consultation or reach out【42528575081629†L343-L350】【42528575081629†L424-L430】.
+ */
+
+/* CSS variables for easy colour management */
+:root {
+  --bg-dark: #0d0d0d;
+  --bg-light: #121212;
+  --text-primary: #ffffff;
+  /* Secondary text is used for supporting copy and taglines.  A slightly
+   * lighter tone improves contrast against the dark backgrounds without
+   * overpowering primary content.
+   */
+  --text-secondary: #bbbbbb;
+  --accent: #f0f0f0;
+  --highlight: #333333;
+  --border-color: #333333;
+  --transition-speed: 0.3s;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Reset some basic styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+a:hover,
+a:focus {
+  color: var(--accent);
+}
+
+/* Layout helpers */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  padding: 12px 24px;
+  border-radius: 4px;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+  font-weight: 600;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--accent);
+  color: var(--bg-dark);
+}
+
+/* Header and Navigation */
+header {
+  width: 100%;
+  background-color: var(--bg-dark);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-color);
+}
+
+header .nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+header .logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav ul li a {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Mobile menu */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  width: 25px;
+}
+
+.mobile-menu-toggle span {
+  width: 100%;
+  height: 3px;
+  background-color: var(--text-primary);
+  transition: transform var(--transition-speed);
+}
+
+/* Hamburger animation when active */
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Hero section */
+.hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 100px; /* offset for fixed header */
+  background-size: cover;
+  background-position: center;
+}
+
+/*
+ * Wrap the hero content in a semi‑transparent panel.  This ensures the
+ * heading and tagline remain readable against busy background patterns
+ * without overpowering the overall minimal design.  Only applied to
+ * the direct container inside the hero so other sections remain
+ * unaffected.
+ */
+.hero > .container {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 8px;
+  display: inline-block;
+  /* Ensure the content panel sits above the pseudo overlay */
+  position: relative;
+  z-index: 1;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /*
+   * Lighten the hero overlay slightly.  A very dark overlay on top of
+   * our black‑and‑grey patterns made the white headings hard to read on
+   * some devices.  Reducing the opacity to 0.45 still provides
+   * contrast without obscuring the underlying pattern.
+   */
+  /*
+   * The hero section uses a dark overlay to ensure that white text
+   * remains legible over the bold geometric patterns.  An opacity of
+   * 0.6 provides sufficient contrast while still allowing the pattern
+   * to show through.
+   */
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 0;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  z-index: 1;
+  /* Add a subtle shadow so the white hero text stands out over busy
+   * background patterns.  This enhances contrast without changing
+   * typography or colours.
+   */
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  /* Use a very light tone for taglines within the hero.  The
+   * semi‑transparent panel behind the hero content provides contrast
+   * without washing out the text, and this off‑white colour improves
+   * visibility on devices with different gamma settings.
+   */
+  color: #f5f5f5;
+  font-weight: 500;
+  z-index: 1;
+  /* Shadow to improve readability over patterned backgrounds */
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.hero .btn {
+  z-index: 1;
+}
+
+/* Sections */
+section {
+  padding: 80px 0;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  text-align: center;
+  position: relative;
+}
+
+section h2::after {
+  content: '';
+  width: 60px;
+  height: 2px;
+  background-color: var(--accent);
+  display: block;
+  margin: 10px auto 0;
+}
+
+/* About section */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  align-items: center;
+}
+
+.about-grid .image {
+  min-height: 300px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+}
+
+.about-grid .text p {
+  margin-bottom: 20px;
+  color: var(--text-secondary);
+}
+
+/* Services section */
+.services {
+  background-color: var(--bg-light);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.service-item {
+  background-color: var(--bg-dark);
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.service-item .icon {
+  margin-bottom: 15px;
+}
+
+.service-item svg {
+  width: 48px;
+  height: 48px;
+  stroke: var(--accent);
+}
+
+.service-item h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.service-item p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+/* Testimonials or quotes section */
+.testimonials {
+  background-image: url('../images/wavy-pattern.png');
+  background-size: cover;
+  background-position: center;
+  color: var(--text-primary);
+  position: relative;
+}
+
+.testimonials::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.testimonials .container {
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-item {
+  max-width: 700px;
+  margin: 0 auto;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.testimonial-item strong {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+  font-style: normal;
+  color: var(--accent);
+}
+
+/* Call to action */
+.cta {
+  background-color: var(--bg-dark);
+  text-align: center;
+  padding: 60px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.cta h2 {
+  margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+  background-color: var(--bg-light);
+  border-top: 1px solid var(--border-color);
+  padding: 40px 0;
+  color: var(--text-secondary);
+}
+
+footer .footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+}
+
+footer h3 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+}
+
+footer p, footer li {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer .footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+footer svg {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 8px;
+  stroke: var(--accent);
+}
+
+/* Contact Page Form */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: var(--bg-dark);
+  padding: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--bg-light);
+  color: var(--text-primary);
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background-color: var(--accent);
+  color: var(--bg-dark);
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+}
+
+.contact-form button:hover {
+  background-color: var(--text-primary);
+  color: var(--bg-dark);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  nav ul {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    flex-direction: column;
+    background-color: var(--bg-dark);
+    width: 200px;
+    padding: 20px;
+    gap: 15px;
+    border-left: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    display: none;
+  }
+
+  nav ul.open {
+    display: flex;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+}
