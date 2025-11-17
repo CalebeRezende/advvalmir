@@ -2,152 +2,1519 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Valmir Eudridge Rezende | Advogado</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Montserrat font for modern typography -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <title>Valmir Eudridge Rezende | Advocacia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Escritório de advocacia de Valmir Eudridge Rezende. Atuação estratégica, humana e personalizada. Fale conosco pelo WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #05070b;
+      --bg-elevated: #090c13;
+      --primary: #c89b3c;
+      --primary-soft: rgba(200, 155, 60, 0.12);
+      --primary-strong: #e0b85a;
+      --accent: #2a3546;
+      --text-main: #f7f7f7;
+      --text-muted: #a9afbf;
+      --error: #f45b69;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --shadow-soft: 0 18px 50px rgba(0,0,0,0.5);
+      --transition-fast: 0.18s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #151827 0, #05070b 55%, #020305 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1.4rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(5,7,11,0.96), rgba(5,7,11,0.7), transparent);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 20%, #fff 0, #f1d89a 10%, #c89b3c 40%, #70624e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 2px rgba(200,155,60,0.5), 0 12px 30px rgba(0,0,0,0.7);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      color: #1b1b1b;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-text span:first-child {
+      font-weight: 700;
+      font-size: 0.98rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .logo-text span:last-child {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.2rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-strong));
+      transition: width var(--transition-fast);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .nav-phone {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: none;
+    }
+
+    .nav-phone strong {
+      color: var(--text-main);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: 999px;
+      padding: 0.55rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), color var(--transition-fast), border var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at 0 0, #fff 0, #f9e6b2 10%, #c89b3c 35%, #6a562e 100%);
+      color: #111;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.8);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.9);
+      background: radial-gradient(circle at 0 0, #fff 0, #ffe9a5 10%, #e0b85a 35%, #6a562e 100%);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--primary);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .btn-pill-soft {
+      background: rgba(255,255,255,0.04);
+      border-radius: 999px;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-pill-soft span.dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #47ff88 0, #21aa54 60%, #0b5330 100%);
+      box-shadow: 0 0 8px rgba(71,255,136,0.8);
+    }
+
+    .icon-whatsapp {
+      width: 17px;
+      height: 17px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.22);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 0 0, #e7fff2 0, #34af65 45%, #075e54 100%);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.7);
+      font-size: 0.75rem;
+    }
+
+    .hero {
+      padding: 3rem 0 2.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 3fr 2.4fr;
+      gap: 2.2rem;
+      align-items: center;
+    }
+
+    .hero-main-eyebrow {
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-main h1 {
+      font-size: clamp(2.3rem, 3.1vw, 3rem);
+      line-height: 1.18;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-main h1 span.highlight {
+      background: linear-gradient(135deg, var(--primary-strong), #ffe7a3);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-main h1 span.block {
+      display: block;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 34rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-badge {
+      font-size: 0.78rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.07);
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-disclaimer {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      max-width: 30rem;
+    }
+
+    .hero-disclaimer strong {
+      color: var(--primary-strong);
+      font-weight: 600;
+    }
+
+    .hero-aside {
+      position: relative;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top, rgba(255,255,255,0.06) 0, rgba(255,255,255,0.02) 40%, rgba(0,0,0,0.9) 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 1.4rem 1.3rem 1.5rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 0 0, rgba(255,255,255,0.18) 0, transparent 50%);
+      opacity: 0.9;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .tagline {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-card h2 {
+      font-size: 1.05rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-bio {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-bio strong {
+      color: var(--text-main);
+    }
+
+    .hero-bio-note {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 0.7rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .stat {
+      background: rgba(0,0,0,0.55);
+      border-radius: 18px;
+      padding: 0.7rem 0.8rem;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .stat-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .hero-availability {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .hero-availability span.dot-status {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #47ff88 0, #21aa54 60%, #0b5330 100%);
+      box-shadow: 0 0 10px rgba(71,255,136,0.9);
+    }
+
+    .hero-floating-tag {
+      position: absolute;
+      right: 0.3rem;
+      bottom: -1rem;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.85);
+      border-radius: 999px;
+      padding: 0.45rem 0.9rem;
+      font-size: 0.76rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-floating-tag span.emoji {
+      font-size: 1rem;
+    }
+
+    section {
+      padding: 2.6rem 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+      align-items: flex-end;
+    }
+
+    .section-title-block h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title-block p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+    }
+
+    .section-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.17em;
+      color: var(--text-muted);
+    }
+
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 1rem;
+    }
+
+    .area-card {
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, rgba(255,255,255,0.02), rgba(0,0,0,0.9));
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 180px;
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border var(--transition-fast), background var(--transition-fast);
+    }
+
+    .area-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 0 0, rgba(200,155,60,0.28), transparent 55%);
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+      pointer-events: none;
+    }
+
+    .area-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(200,155,60,0.8);
+      box-shadow: 0 16px 45px rgba(0,0,0,0.9);
+      background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(0,0,0,0.9));
+    }
+
+    .area-card:hover::before {
+      opacity: 1;
+    }
+
+    .area-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.04);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .area-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .area-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      flex: 1;
+      margin-bottom: 0.6rem;
+    }
+
+    .area-notes {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 2.4fr;
+      gap: 1.7rem;
+      align-items: flex-start;
+    }
+
+    .about-card {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top, rgba(255,255,255,0.04) 0, rgba(0,0,0,0.9) 60%);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 1.2rem 1.1rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .avatar-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .avatar {
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 30% 20%, #fff 0, #f1d89a 14%, #c89b3c 48%, #3b2f1a 100%);
+      box-shadow: 0 14px 35px rgba(0,0,0,0.9);
+    }
+
+    .avatar::after {
+      content: "V";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #1b1b1b;
+    }
+
+    .avatar-info h3 {
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .avatar-info p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .about-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .about-card p + p {
+      margin-top: 0.6rem;
+    }
+
+    .badge-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.9rem;
+    }
+
+    .badge-chip {
+      font-size: 0.76rem;
+      padding: 0.18rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+      color: var(--text-muted);
+    }
+
+    .about-text {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .about-text p + p {
+      margin-top: 0.75rem;
+    }
+
+    .about-callout {
+      margin-top: 0.9rem;
+      padding: 0.8rem 0.9rem;
+      border-radius: 16px;
+      border: 1px dashed rgba(200,155,60,0.7);
+      background: rgba(200,155,60,0.06);
+      font-size: 0.83rem;
+      color: var(--text-main);
+    }
+
+    .insights-grid {
+      display: grid;
+      grid-template-columns: 1.8fr 2.2fr;
+      gap: 1.6rem;
+      align-items: flex-start;
+    }
+
+    .insights-intro {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top, rgba(200,155,60,0.12) 0, rgba(0,0,0,0.9) 65%);
+      border: 1px solid rgba(255,255,255,0.09);
+      padding: 1.1rem 1.1rem 1.2rem;
+    }
+
+    .insights-intro h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .insights-intro p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .insights-tip {
+      margin-top: 0.8rem;
+      font-size: 0.82rem;
+      background: rgba(0,0,0,0.7);
+      border-radius: 14px;
+      padding: 0.6rem 0.7rem;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .insights-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 1rem;
+    }
+
+    .insight-card {
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, rgba(255,255,255,0.02), rgba(0,0,0,0.9));
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 0.9rem 0.9rem 0.95rem;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .insight-tagline {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.17em;
+      color: var(--primary-strong);
+      margin-bottom: 0.2rem;
+    }
+
+    .insight-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+      color: var(--text-main);
+    }
+
+    .insight-highlight {
+      font-size: 0.8rem;
+      margin-top: 0.35rem;
+      color: var(--text-main);
+    }
+
+    .insight-highlight strong {
+      color: var(--primary-strong);
+    }
+
+    .insight-card ul {
+      margin-top: 0.4rem;
+      padding-left: 1rem;
+    }
+
+    .insight-card li {
+      margin-bottom: 0.25rem;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 1rem;
+    }
+
+    .testimonial-card {
+      border-radius: 18px;
+      background: rgba(0,0,0,0.75);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 0.9rem;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      min-height: 150px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-card::before {
+      content: "“";
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      font-size: 3rem;
+      color: rgba(255,255,255,0.04);
+    }
+
+    .testimonial-footer {
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      color: var(--text-main);
+    }
+
+    .testimonial-footer span {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.76rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.7fr 2.3fr;
+      gap: 1.6rem;
+      align-items: flex-start;
+    }
+
+    .contact-card {
+      border-radius: var(--radius-lg);
+      background: linear-gradient(160deg, rgba(200,155,60,0.11), rgba(0,0,0,0.9));
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 1rem 1rem 1.1rem;
+    }
+
+    .contact-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .contact-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .contact-details {
+      margin-top: 0.8rem;
+      font-size: 0.86rem;
+    }
+
+    .contact-details div {
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-details span.label {
+      display: inline-block;
+      min-width: 70px;
+      color: var(--text-muted);
+    }
+
+    .contact-details a {
+      color: var(--primary-strong);
+    }
+
+    .contact-form-card {
+      border-radius: var(--radius-lg);
+      background: rgba(0,0,0,0.85);
+      border: 1px solid rgba(255,255,255,0.09);
+      padding: 1rem 0.95rem 1.1rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 0.7rem;
+    }
+
+    .form-group {
+      margin-bottom: 0.7rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.78rem;
+      margin-bottom: 0.25rem;
+      color: var(--text-muted);
+    }
+
+    .form-control {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+      padding: 0.55rem 0.7rem;
+      font-size: 0.88rem;
+      color: var(--text-main);
+      outline: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary-strong);
+      box-shadow: 0 0 0 1px rgba(200,155,60,0.5);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .form-hint {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      margin-top: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .form-note {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      max-width: 18rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 1.3rem 0 1.5rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 0.2rem;
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      right: 1.3rem;
+      bottom: 1.3rem;
+      z-index: 50;
+    }
+
+    .floating-whatsapp button {
+      padding: 0.65rem 1rem;
+      border-radius: 999px;
+      background: radial-gradient(circle at 0 0, #e7fff2 0, #34af65 48%, #075e54 100%);
+      color: #081c13;
+      border: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.9);
+      cursor: pointer;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+    }
+
+    .floating-whatsapp button:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow: 0 18px 48px rgba(0,0,0,1);
+    }
+
+    .floating-whatsapp .icon-whatsapp {
+      font-size: 0.9rem;
+      width: 19px;
+      height: 19px;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-aside {
+        order: -1;
+      }
+
+      .areas-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .insights-grid, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+
+      .nav-phone {
+        display: none;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-phone {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 2rem;
+      }
+
+      section {
+        padding: 2rem 0;
+      }
+
+      .areas-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .insights-list {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        gap: 1rem;
+      }
+
+      .floating-whatsapp {
+        right: 1rem;
+        bottom: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Header with navigation -->
+<div class="page">
   <header>
-    <div class="container nav-container">
-      <div class="logo">Valmir Rezende</div>
-      <nav>
-        <ul class="nav-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">Sobre</a></li>
-          <li><a href="services.html">Serviços</a></li>
-          <li><a href="contact.html">Contato</a></li>
-        </ul>
-        <div class="mobile-menu-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
+    <div class="container">
+      <nav class="nav">
+        <div class="logo">
+          <div class="logo-mark">VR</div>
+          <div class="logo-text">
+            <span>VALMIR EUDRIDGE REZENDE</span>
+            <span>ADVOCACIA E CONSULTORIA</span>
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="#atuacao">Áreas de atuação</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#Insights">Casos</a>
+          <a href="#contato">Contato</a>
+        </div>
+        <div class="nav-cta">
+          <div class="nav-phone">
+            WhatsApp: <strong>(11) 97641-2032</strong>
+          </div>
+          <button class="btn btn-ghost" onclick="scrollToSection('contato')">
+            Formulário de contato
+          </button>
+          <button class="btn btn-primary" onclick="openWhatsApp()">
+            <span class="icon-whatsapp">w</span>
+            Nos chame
+          </button>
         </div>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero" style="background-image: url('images/hero-pattern.png');">
-    <div class="container">
-      <h1>Valmir Eudridge Rezende</h1>
-      <p>Advogado dedicado a defender seus direitos com experiência e integridade.</p>
-      <a href="contact.html" class="btn">Agende uma consulta</a>
-    </div>
-  </section>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-main">
+          <div class="hero-main-eyebrow">
+            <div class="btn-pill-soft">
+              <span class="dot"></span>
+              Atendimento jurídico estratégico e próximo de você
+            </div>
+          </div>
+          <h1>
+            <span class="block">Advocacia feita</span>
+            <span class="block highlight">para resolver problemas reais.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Atuação dedicada, linguagem clara e foco em resultados. Do primeiro contato à solução do seu caso,
+            você será acompanhado de forma cuidadosa, humana e estratégica.
+          </p>
 
-  <!-- About summary (small excerpt) -->
-  <section class="about">
-    <div class="container">
-      <h2>Bem‑vindo</h2>
-      <p>Com anos de experiência em diversas áreas do Direito, o escritório de Valmir Eudridge Rezende oferece soluções jurídicas sob medida. Nossa missão é fornecer aconselhamento claro e resultados eficazes para nossos clientes, sempre com ética e comprometimento.</p>
-      <p>Atuamos com transparência e foco no cliente, alinhando conhecimento técnico à compreensão humana de cada caso. Descubra mais <a href="about.html">sobre nós</a>.</p>
-    </div>
-  </section>
+          <div class="hero-badges">
+            <div class="hero-badge">Atuação consultiva e contenciosa</div>
+            <div class="hero-badge">Atendimento online para todo o Brasil</div>
+            <div class="hero-badge">Comunicação transparente e objetiva</div>
+          </div>
 
-  <!-- Services preview -->
-  <section class="services">
-    <div class="container">
-      <h2>Áreas de Atuação</h2>
-      <div class="services-grid">
-        <div class="service-item">
-          <div class="icon">
-            <!-- Gavel icon representing Direito Penal -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-gavel"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M13 10l7.383 7.418c.823 .82 .823 2.148 0 2.967a2.11 2.11 0 0 1 -2.976 0l-7.407 -7.385" /><path d="M6 9l4 4" /><path d="M13 10l-4 -4" /><path d="M3 21h7" /><path d="M6.793 15.793l-3.586 -3.586a1 1 0 0 1 0 -1.414l2.293 -2.293l.5 .5l3 -3l-.5 -.5l2.293 -2.293a1 1 0 0 1 1.414 0l3.586 3.586a1 1 0 0 1 0 1.414l-2.293 2.293l-.5 -.5l-3 3l.5 .5l-2.293 2.293a1 1 0 0 1 -1.414 0z" /></svg>
+          <div class="hero-cta-row">
+            <button class="btn btn-primary" onclick="openWhatsApp()">
+              <span class="icon-whatsapp">w</span>
+              Nos chame no WhatsApp
+            </button>
+            <button class="btn btn-ghost" onclick="scrollToSection('atuacao')">
+              Ver áreas de atuação
+            </button>
           </div>
-          <h3>Direito Penal</h3>
-          <p>Defesa e representação em casos criminais com análise rigorosa e atuação estratégica.</p>
+
+          <div class="hero-disclaimer">
+            <strong>Atenção:</strong> este site não substitui uma consulta jurídica formal.
+            Cada situação exige análise específica de documentos, prazos e contexto.
+          </div>
         </div>
-        <div class="service-item">
-          <div class="icon">
-            <!-- Heart-handshake icon representing Direito de Família -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-heart-handshake"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /><path d="M12 6l-3.293 3.293a1 1 0 0 0 0 1.414l.543 .543c.69 .69 1.81 .69 2.5 0l1 -1a3.182 3.182 0 0 1 4.5 0l2.25 2.25" /><path d="M12.5 15.5l2 2" /><path d="M15 13l2 2" /></svg>
+
+        <aside class="hero-aside">
+          <div class="hero-card">
+            <div class="tagline">Seu advogado de referência</div>
+            <h2>Valmir Eudridge Rezende</h2>
+            <p class="hero-bio">
+              Advogado comprometido em traduzir o “juridiquês” em decisões práticas, com foco na proteção de direitos,
+              prevenção de conflitos e definição de estratégias jurídicas claras para cada caso.
+            </p>
+            <p class="hero-bio-note">
+              <strong>OAB/SP:</strong> insira aqui o número oficial de inscrição para divulgação profissional.
+            </p>
+            <div class="hero-stats">
+              <div class="stat">
+                <div class="stat-label">Atuação</div>
+                <div class="stat-value">Cível, Família, Trabalho e Consumidor</div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">Atendimento</div>
+                <div class="stat-value">Online e presencial (sob agendamento)</div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">Enfoque</div>
+                <div class="stat-value">Estratégia personalizada por caso</div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">Comunicação</div>
+                <div class="stat-value">Clareza, empatia e transparência</div>
+              </div>
+            </div>
+            <div class="hero-availability">
+              <span class="dot-status"></span>
+              Agenda com horários flexíveis para reuniões online.
+            </div>
+            <div class="hero-floating-tag">
+              <span class="emoji">⚖️</span>
+              <span>Juridicamente técnico, humanamente acessível.</span>
+            </div>
           </div>
-          <h3>Direito de Família</h3>
-          <p>Apoio sensível em questões de família, como divórcio, guarda e pensão alimentícia.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ÁREAS DE ATUAÇÃO -->
+    <section id="atuacao">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-block">
+            <h2>Áreas de atuação</h2>
+            <p>
+              Abaixo, alguns exemplos de demandas jurídicas comuns nas quais o escritório pode atuar. 
+              Ajuste conforme sua atuação real (cível, trabalhista, criminal, empresarial etc.).
+            </p>
+          </div>
+          <div class="section-tag">Como podemos ajudar</div>
         </div>
-        <div class="service-item">
-          <div class="icon">
-            <!-- File icon representing Direito Civil -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-file"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /></svg>
-          </div>
-          <h3>Direito Civil</h3>
-          <p>Consultoria e litígios em contratos, responsabilidade civil e demais áreas cíveis.</p>
-        </div>
-        <div class="service-item">
-          <div class="icon">
-            <!-- Another file icon reused for Direito Empresarial -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-file"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /></svg>
-          </div>
-          <h3>Direito Empresarial</h3>
-          <p>Assessoria jurídica para empresas em todas as fases do negócio, desde a constituição até disputas.</p>
+
+        <div class="areas-grid">
+          <article class="area-card">
+            <div class="area-icon">🏠</div>
+            <h3>Direito Civil & Contratos</h3>
+            <p>
+              Análise e elaboração de contratos, cobranças, responsabilidade civil, indenizações
+              e resolução de conflitos entre pessoas físicas e empresas.
+            </p>
+            <div class="area-notes">
+              • Revisão de contratos<br>
+              • Ações de cobrança e indenização
+            </div>
+          </article>
+
+          <article class="area-card">
+            <div class="area-icon">👨‍👩‍👧</div>
+            <h3>Família & Sucessões</h3>
+            <p>
+              Orientação em processos de divórcio, guarda, pensão alimentícia, inventário,
+              partilha de bens e regularização de situações familiares sensíveis.
+            </p>
+            <div class="area-notes">
+              • Acordos extrajudiciais<br>
+              • Planejamento sucessório
+            </div>
+          </article>
+
+          <article class="area-card">
+            <div class="area-icon">💼</div>
+            <h3>Direito do Trabalho</h3>
+            <p>
+              Análise de vínculos trabalhistas, direitos de empregados e empregadores,
+              rescisões, verbas não pagas e prevenção de litígios.
+            </p>
+            <div class="area-notes">
+              • Reclamações trabalhistas<br>
+              • Consultoria preventiva
+            </div>
+          </article>
+
+          <article class="area-card">
+            <div class="area-icon">🛒</div>
+            <h3>Direito do Consumidor</h3>
+            <p>
+              Atuação em casos de cobranças abusivas, negativação indevida, falhas na prestação de serviços,
+              contratos desequilibrados e fraudes de consumo.
+            </p>
+            <div class="area-notes">
+              • Ações contra bancos, telefonia, varejo<br>
+              • Renegociação de dívidas
+            </div>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Testimonials section (placeholder for credibility) -->
-  <section class="testimonials">
-    <div class="container">
-      <h2>Depoimentos</h2>
-      <div class="testimonial-item">
-        <p>“O Dr. Valmir foi fundamental para resolver meu caso com rapidez e atenção. Recomendo fortemente seus serviços.”</p>
-        <strong>– Cliente satisfeito</strong>
+    <!-- SOBRE -->
+    <section id="sobre">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-block">
+            <h2>Sobre o advogado</h2>
+            <p>
+              Mais do que processos, o foco é entender a história por trás de cada caso e construir
+              uma estratégia jurídica alinhada com a realidade de quem busca ajuda.
+            </p>
+          </div>
+          <div class="section-tag">Quem está ao seu lado</div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="avatar-wrapper">
+              <div class="avatar"></div>
+              <div class="avatar-info">
+                <h3>Valmir Eudridge Rezende</h3>
+                <p>Advogado | Consultoria e atuação contenciosa</p>
+              </div>
+            </div>
+            <p>
+              A advocacia é, ao mesmo tempo, técnica e humana. Ao buscar apoio jurídico, a pessoa não 
+              procura apenas leis, mas alguém que consiga traduzir o problema em caminhos concretos.
+            </p>
+            <p>
+              A proposta de atuação é combinar rigor jurídico com uma escuta atenta, explicando cada passo do processo,
+              sempre com transparência sobre riscos, prazos e possibilidades.
+            </p>
+            <div class="badge-strip">
+              <span class="badge-chip">Postura ética e responsável</span>
+              <span class="badge-chip">Foco em prevenção de conflitos</span>
+              <span class="badge-chip">Atendimento acolhedor</span>
+            </div>
+          </div>
+          <div class="about-text">
+            <p>
+              Cada caso traz um contexto próprio: histórias familiares, questões financeiras, relações de trabalho,
+              contratos mal explicados, situações de vulnerabilidade ou conflitos que já vêm de longa data.
+              Por isso, o primeiro passo é sempre compreender o cenário completo, antes de apontar qualquer medida.
+            </p>
+            <p>
+              A partir desse mapeamento, é possível avaliar se a melhor saída é um acordo, uma medida extrajudicial
+              ou, quando necessário, o ingresso de ação judicial. Em todas essas hipóteses, o cliente é informado de forma
+              clara sobre etapas, custos prováveis, chances e limitações do direito.
+            </p>
+            <p class="about-callout">
+              A advocacia responsável não promete resultados, mas promete dedicação, estudo, honestidade e compromisso em
+              buscar a solução juridicamente mais adequada para cada história.
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Call to action -->
-  <section class="cta">
-    <div class="container">
-      <h2>Pronto para obter ajuda?</h2>
-      <p>Entre em contato conosco para agendar uma consulta personalizada.</p>
-      <a href="contact.html" class="btn">Fale Conosco</a>
-    </div>
-  </section>
+    <!-- INSIGHTS / CASOS -->
+    <section id="insights">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-block">
+            <h2>Insights sobre casos jurídicos</h2>
+            <p>
+              Alguns cenários comuns do dia a dia da advocacia e como uma atuação técnica pode fazer diferença.
+              São exemplos didáticos e genéricos, não se referem a casos reais específicos.
+            </p>
+          </div>
+          <div class="section-tag">Entendendo na prática</div>
+        </div>
 
-  <!-- Footer -->
+        <div class="insights-grid">
+          <div class="insights-intro">
+            <h3>Por que procurar um advogado antes do problema estourar?</h3>
+            <p>
+              Em muitos casos, a atuação preventiva evita processos longos, desgastes emocionais e custos desnecessários.
+              Um contrato bem feito, um acordo bem redigido ou uma orientação pontual podem mudar o rumo de uma situação.
+            </p>
+            <div class="insights-tip">
+              <strong>Dica:</strong> dúvidas sobre cláusulas de contrato, propostas de acordo, notificações recebidas ou
+              documentos para assinar já são motivos suficientes para uma consulta jurídica.
+            </div>
+          </div>
+
+          <div class="insights-list">
+            <article class="insight-card">
+              <div class="insight-tagline">Cenário comum</div>
+              <h3>Contrato assinado sem leitura detalhada</h3>
+              <p>
+                Pessoas físicas e pequenas empresas frequentemente assinam contratos padrão de bancos, imobiliárias,
+                prestadores de serviço ou plataformas digitais sem avaliar riscos ocultos.
+              </p>
+              <div class="insight-highlight">
+                Insight: <strong>a revisão prévia</strong> pode apontar cláusulas abusivas, multas desproporcionais,
+                renúncia de direitos e caminhos para negociar termos mais equilibrados.
+              </div>
+              <ul>
+                <li>Identificação de cláusulas abusivas</li>
+                <li>Ajuste contratual e orientações de assinatura</li>
+              </ul>
+            </article>
+
+            <article class="insight-card">
+              <div class="insight-tagline">Cenário comum</div>
+              <h3>Conflitos familiares e decisões precipitadas</h3>
+              <p>
+                Em situações de separação, guarda e pensão, decisões tomadas no impulso podem gerar acordos injustos
+                ou dificuldades para rever condições no futuro.
+              </p>
+              <div class="insight-highlight">
+                Insight: <strong>acordos bem estruturados</strong> protegem direitos de todas as partes envolvidas,
+                especialmente de crianças e adolescentes.
+              </div>
+              <ul>
+                <li>Avaliação de cenário antes de propor ação</li>
+                <li>Construção de acordos com foco em estabilidade</li>
+              </ul>
+            </article>
+
+            <article class="insight-card">
+              <div class="insight-tagline">Cenário comum</div>
+              <h3>Direitos trabalhistas invisíveis</h3>
+              <p>
+                Muitos trabalhadores desconhecem adicionais, horas extras, diferenças salariais, assédio ou irregularidades
+                na rescisão que poderiam ser questionadas.
+              </p>
+              <div class="insight-highlight">
+                Insight: <strong>uma análise técnica</strong> da documentação (contrato, holerites, rescisão) pode
+                revelar valores não pagos e possibilidades de acordo ou ação.
+              </div>
+              <ul>
+                <li>Estudo completo da relação de trabalho</li>
+                <li>Estratégia para acordo ou ação judicial</li>
+              </ul>
+            </article>
+
+            <article class="insight-card">
+              <div class="insight-tagline">Cenário comum</div>
+              <h3>Negativação e cobranças indevidas</h3>
+              <p>
+                Cobranças equivocadas, serviços não contratados, dívidas antigas e registros indevidos em órgãos de 
+                proteção ao crédito podem limitar a vida financeira.
+              </p>
+              <div class="insight-highlight">
+                Insight: dependendo do caso, é possível <strong>regularizar o nome</strong> e discutir
+                indenização por danos morais e materiais.
+              </div>
+              <ul>
+                <li>Análise de histórico de dívidas e negativação</li>
+                <li>Estratégias de contestação e renegociação</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-block">
+            <h2>O que clientes valorizam na advocacia</h2>
+            <p>
+              Abaixo, exemplos de percepções que clientes costumam destacar quando se sentem bem atendidos 
+              por um advogado. Use como base para depoimentos reais futuramente.
+            </p>
+          </div>
+          <div class="section-tag">Experiência percebida</div>
+        </div>
+
+        <div class="testimonials-grid">
+          <article class="testimonial-card">
+            <p>
+              “Ter alguém que explica o processo em uma linguagem que eu entendo fez toda a diferença.
+              Soube exatamente o que estava acontecendo em cada etapa, sem promessas irreais.”
+            </p>
+            <div class="testimonial-footer">
+              Cliente – São Paulo/SP
+              <span>Situação cível e de consumo (exemplo didático)</span>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <p>
+              “O foco não foi apenas entrar com ação, mas avaliar se um acordo seria melhor naquele momento.
+              Saber que foram apresentados prós e contras me deixou mais seguro para decidir.”
+            </p>
+            <div class="testimonial-footer">
+              Cliente – Região Metropolitana
+              <span>Conflito familiar e patrimonial (exemplo didático)</span>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <p>
+              “Eu não fazia ideia de que tinha direitos trabalhistas não pagos. 
+              A análise dos documentos mostrou que muita coisa estava errada, e conseguimos discutir isso com a empresa.”
+            </p>
+            <div class="testimonial-footer">
+              Cliente – Interior de SP
+              <span>Direito do trabalho (exemplo didático)</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-block">
+            <h2>Entre em contato</h2>
+            <p>
+              Use o formulário abaixo para descrever, de forma geral, sua situação.
+            </p>
+          </div>
+          <div class="section-tag">Próximo passo</div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Atendimento jurídico personalizado</h3>
+            <p>
+              Depois do seu primeiro contato, será avaliada a melhor forma de retorno: mensagem, ligação ou 
+              agendamento de reunião online/presencial, conforme a complexidade do caso.
+            </p>
+            <div class="contact-details">
+              <div>
+                <span class="label">WhatsApp:</span>
+                <a href="javascript:void(0)" onclick="openWhatsApp()">(11) 97641-2032</a>
+              </div>
+              <div>
+                <span class="label">E-mail:</span>
+                <a href="mailto:valeurdez@gmail.com">valeurdez@gmail.com</a>
+              </div>
+              <div>
+                <span class="label">Local:</span>
+                São Paulo/SP — Atendimento também online (Brasil inteiro)
+              </div>
+            </div>
+            <p style="margin-top:0.8rem; font-size:0.83rem; color:var(--text-muted);">
+              <strong>Observação:</strong> o envio deste formulário não cria, por si só, relação contratual de 
+              cliente e advogado. Um contrato e honorários serão combinados caso o atendimento seja confirmado.
+            </p>
+          </div>
+
+          <div class="contact-form-card">
+            <!-- Formulário integrado ao Formspree -->
+            <!-- modify this form HTML and place wherever you want your form -->
+            <form
+              action="https://formspree.io/f/xgvrjqyj"
+              method="POST"
+            >
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nome">Nome completo</label>
+                  <input id="nome" name="nome" class="form-control" required placeholder="Como devemos te chamar?">
+                </div>
+                <div class="form-group">
+                  <label for="telefone">Telefone / WhatsApp</label>
+                  <input id="telefone" name="telefone" class="form-control" required placeholder="(DDD) número">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">E-mail</label>
+                <!-- campo email com name="email" para o Formspree -->
+                <input id="email" name="email" class="form-control" type="email" placeholder="Seu melhor e-mail">
+              </div>
+              <div class="form-group">
+                <label for="assunto">Assunto geral</label>
+                <input id="assunto" name="assunto" class="form-control" placeholder="Ex.: contrato, família, trabalho, consumo...">
+              </div>
+              <div class="form-group">
+                <label for="mensagem">Conte, em poucas linhas, o que está acontecendo</label>
+                <!-- campo principal de mensagem com name="message" para o Formspree -->
+                <textarea id="mensagem" name="message" class="form-control" placeholder="Descreva seu caso, para retornarmos o mais rápido possível."></textarea>
+              </div>
+              <div class="form-hint">
+                Ao enviar, você autoriza o contato de retorno para fins exclusivamente jurídicos, de acordo com a LGPD.
+              </div>
+              <div class="form-footer">
+                <button type="submit" class="btn btn-primary">
+                  Enviar mensagem
+                </button>
+                <div class="form-note">
+                  Se preferir, você pode clicar no botão de WhatsApp abaixo à direita para falar diretamente.
+                </div>
+              </div>
+            </form>
+            <!-- fim formulário Formspree -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
   <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-contact">
-          <h3>Contato</h3>
-          <p>
-            <!-- Phone icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-phone"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" /></svg>
-            (11) 97799‑1447
-          </p>
-          <p>
-            <!-- Mail icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-mail"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg>
-            <a href="mailto:[email protected]">[email protected]</a>
-          </p>
-          <p>
-            <!-- Location icon (reuse file icon as placeholder) -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-file"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /></svg>
-            Rua Exemplo, 123 – São Paulo/SP
-          </p>
-        </div>
-        <div class="footer-nav">
-          <h3>Navegação</h3>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">Sobre</a></li>
-            <li><a href="services.html">Serviços</a></li>
-            <li><a href="contact.html">Contato</a></li>
-          </ul>
-        </div>
+    <div class="container footer-row">
+      <div>
+        &copy; <span id="year"></span> Valmir Eudridge Rezende – Advocacia. Todos os direitos reservados.
       </div>
-      <div class="footer-bottom">
-        &copy; 2025 Valmir Eudridge Rezende. Todos os direitos reservados.
+      <div class="footer-links">
+        <a href="#top" onclick="scrollToTop(); return false;">Voltar ao topo</a>
+        <a href="#contato">Formulário de contato</a>
       </div>
     </div>
   </footer>
+</div>
 
-  <script src="script.js"></script>
+<!-- Botão flutuante de WhatsApp -->
+<div class="floating-whatsapp">
+  <button type="button" onclick="openWhatsApp()">
+    <span class="icon-whatsapp">w</span>
+    Nos chame no WhatsApp
+  </button>
+</div>
+
+<script>
+  function openWhatsApp() {
+    // Número fornecido: 11 97641-2032 => DDI Brasil 55
+    const url = "https://wa.me/5511976412032?text=Olá,%20gostaria%20de%20uma%20orientação%20jurídica.";
+    window.open(url, "_blank");
+  }
+
+  function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // Ano atual no rodapé
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
